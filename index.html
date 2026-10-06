@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2D/3D generalist | pprosic</title>
+  <meta name="description" content="Welcome to the homepage of pprosic, I am a versatile 2D 3D graphic artist & developer living in Vienna.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pprosic.com/">
+  <meta property="og:title" content="PATRICK PROSIC — 2D/3D generalist">
+  <meta property="og:description" content="visualizations &amp; animations | interactive applications | pitch deck material | typography &amp; layout">
+  <meta property="og:image" content="https://pprosic.com/assets/img/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/BigShouldersDisplay-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="#top" class="nav__logo">PPROSIC</a>
+    <div class="nav__links">
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#clients">Clients</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.artstation.com/pprosic" target="_blank" rel="noopener" class="accent">ArtStation ↗</a>
+    </div>
+  </nav>
+
+  <header id="top" class="hero">
+    <img class="hero__img" src="assets/img/DarkStreet_003_0282.jpg" alt="" fetchpriority="high">
+    <!-- Hero-Videos: assets/vids/01.mp4, 02.mp4 … werden nacheinander überblendet (js/main.js) -->
+    <video class="hero__vid" id="hero-v1" muted playsinline preload="auto" aria-hidden="true"></video>
+    <video class="hero__vid" id="hero-v2" muted playsinline preload="auto" aria-hidden="true"></video>
+    <div class="hero__shade"></div>
+    <div class="hero__content">
+      <div class="label accent">graphic artist pprosic — Vienna</div>
+      <h1 class="hero__title">PATRICK PROSIC</h1>
+      <div class="hero__bar">
+        <div class="hero__role">2D/3D GENERALIST</div>
+        <div class="hero__services">visualizations &amp; animations | interactive applications | pitch deck material | typography &amp; layout</div>
+      </div>
+    </div>
+  </header>
+
+  <section class="intro pad">
+    <p class="intro__big">WELCOME TO MY LANDING PAGE!</p>
+    <p class="intro__text">For more insight into my past and future projects, please head to my active <a href="https://www.artstation.com/pprosic" target="_blank" rel="noopener" class="link">artstation portfolio!</a></p>
+  </section>
+
+  <section id="work" class="section section--bleed">
+    <div class="section__head pad-x">
+      <div class="heading"><span class="heading__num">01</span><h2>WORK</h2></div>
+      <div class="filters" id="filters"></div>
+    </div>
+    <div class="works" id="works"></div>
+  </section>
+
+  <section id="process" class="section section--alt pad">
+    <div class="heading"><span class="heading__num">02</span><h2>PROCESS</h2></div>
+    <div class="verbs" id="verbs"></div>
+    <div class="tools" id="tools"></div>
+  </section>
+
+  <section id="clients" class="section pad">
+    <div class="heading"><span class="heading__num">03</span><h2>CLIENTS</h2></div>
+    <img class="clients" src="assets/img/Firmenteppich.png" alt="clients">
+  </section>
+
+  <section class="section section--bleed">
+    <div class="section__head pad-x">
+      <div class="heading"><span class="heading__num">04</span><h2>SOME OF THE PAST</h2></div>
+    </div>
+    <img class="archive" id="archive" src="assets/img/WWW_WORK_COLLAGE.jpg" alt="work" loading="lazy">
+  </section>
+
+  <section id="contact" class="section section--alt pad contact">
+    <div class="contact__info">
+      <div class="heading"><span class="heading__num">05</span><h2>CONTACT</h2></div>
+      <div class="contact__meta">
+        <span>Patrick Prosic — Vienna</span>
+        <a href="https://www.artstation.com/pprosic" target="_blank" rel="noopener" class="accent">artstation.com/pprosic ↗</a>
+      </div>
+    </div>
+    <form class="form" id="contact-form">
+      <label class="field"><span class="label">Name</span><input name="name" required></label>
+      <label class="field"><span class="label">Email</span><input name="email" type="email" required></label>
+      <label class="field"><span class="label">Message</span><textarea name="message" rows="4" required></textarea></label>
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="form__row">
+        <button type="submit" class="btn" id="form-btn">Submit</button>
+        <span class="form__sent" id="form-sent" hidden>message sent successfully!</span>
+        <span class="form__error" id="form-error" hidden>sending failed — please try again later.</span>
+      </div>
+      <p class="form__note">Your data is only used to answer your message. <a href="datenschutz.html">Privacy policy</a></p>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <span>©2020-<span id="year">2026</span> by Patrick Prosic</span>
+    <span class="footer__links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="#top">Top ↑</a></span>
+  </footer>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <img id="lb-img" src="" alt="">
+    <div class="lightbox__bar">
+      <button class="lb-btn" id="lb-prev">← Prev</button>
+      <span id="lb-caption"></span>
+      <button class="lb-btn" id="lb-next">Next →</button>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
