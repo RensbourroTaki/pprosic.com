@@ -21,7 +21,6 @@ window.SITE = {
   works: [
     ['BT_highway_FINAL.jpg', 'Film Project: Highway Scene', 'scifi'],
     ['Fetzo_Tankstelle_3K.jpg', 'Electric Charging Solution Project', 'viz'],
-    ['TheLibrary_03.jpg', 'Library Design Project', 'interior'],
     ['SheV2.jpg', 'Film Project: Idle Scene', 'scifi'],
     ['PolizeiEtank.jpg', 'Electric Charging Solution and Branding', 'viz'],
     ['BT_BikeHighway_002_0004.jpg', 'Film Project: Chase Scene', 'scifi'],
