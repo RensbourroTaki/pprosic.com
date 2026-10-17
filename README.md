@@ -1,2 +1,2 @@
 # pprosic.com
-2D/3D generalist &amp; technical 3D artist
+2D/3D GENERALIST, TECHNICAL ARTIST, GAME DEV &amp; OPTIMIZATION
