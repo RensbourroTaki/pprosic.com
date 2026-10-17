@@ -12,9 +12,17 @@ window.SITE = {
 
   categories: {
     scifi: 'Fictional',
-    interior: 'Interiors',
+    interior: 'Archi-Viz',
     viz: 'Visualization',
     brand: 'Brand & Print'
+  },
+  // Kurze Filter-Namen fürs Handy (damit alle Buttons in eine Zeile passen)
+  categoriesShort: {
+    all: 'All',
+    scifi: 'Fiction',
+    interior: 'Archi',
+    viz: 'Viz',
+    brand: 'Print'
   },
 
   // [Dateiname, Titel, Kategorie]

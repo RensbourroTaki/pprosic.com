@@ -21,8 +21,10 @@
   // Filters
   function renderFilters() {
     var keys = [['all', 'All']].concat(Object.keys(S.categories).map(function (k) { return [k, S.categories[k]]; }));
+    var short = S.categoriesShort || {};
     $('filters').innerHTML = keys.map(function (k) {
-      return '<button class="filter' + (k[0] === filter ? ' is-active' : '') + '" data-f="' + k[0] + '">' + k[1] + '</button>';
+      return '<button class="filter' + (k[0] === filter ? ' is-active' : '') + '" data-f="' + k[0] + '" aria-label="' + k[1] + '">' +
+        '<span class="filter__long">' + k[1] + '</span><span class="filter__short">' + (short[k[0]] || k[1]) + '</span></button>';
     }).join('');
   }
   $('filters').addEventListener('click', function (e) {

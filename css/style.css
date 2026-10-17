@@ -139,6 +139,17 @@ img { display: block; }
 }
 .filter:hover { color: var(--ink); border-color: var(--ink-3); }
 .filter.is-active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.filter__short { display: none; }
+@media (max-width: 860px) {
+  /* Mobile: immer genau eine Zeile, Buttons teilen sich die volle Breite */
+  .filters { flex: 1 1 100%; flex-wrap: nowrap; gap: 4px; }
+  .filter {
+    flex: 1 1 auto; min-width: 0; padding: 9px 4px; white-space: nowrap;
+    font-size: clamp(11px, 3.4vw, 14px); letter-spacing: 0.06em;
+  }
+  .filter__long { display: none; }
+  .filter__short { display: inline; }
+}
 
 /* Works — full bleed */
 .works { display: flex; flex-direction: column; gap: 4px; }
