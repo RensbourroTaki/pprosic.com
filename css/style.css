@@ -14,6 +14,7 @@
   --ink-3: #a9aeb6;
   --ink-4: #7d838c;
   --accent: #6fd3e6;
+  --orange: #ff9500;
   --line: rgba(255,255,255,0.07);
   --pad: clamp(20px, 4vw, 56px);
   --display: 'Big Shoulders Display', sans-serif;
@@ -47,7 +48,7 @@ img { display: block; }
   border-bottom: 1px solid var(--line);
 }
 .nav__logo { font-family: var(--display); font-weight: 400; font-size: 26px; letter-spacing: 0.06em; }
-.nav__logo span { color: #ff6a00; }
+.nav__logo span { color: var(--orange); }
 .nav__links { display: flex; flex-wrap: wrap; gap: clamp(16px,2.6vw,36px); font-size: 14px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; }
 .nav__links a { color: var(--ink-3); }
 .nav__links a.accent { color: var(--accent); }
@@ -114,8 +115,8 @@ img { display: block; }
 .hero__head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 40px; }
 .hero__link { margin: 0; color: var(--ink-2); }
 .hero__bar { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 18px; }
-.hero__role { margin-left: -0.053em; font-family: var(--display); font-weight: 400; font-size: clamp(26px,2.6vw,36px); letter-spacing: 0.02em; }
-.hero__services { color: var(--ink-2); max-width: 760px; text-wrap: pretty; }
+.hero__role { margin-left: -0.053em; font-family: var(--display); font-weight: 400; font-size: clamp(26px,2.6vw,36px); letter-spacing: 0.02em; color: var(--orange); }
+.hero__services { color: #e6e6e6; max-width: 760px; text-wrap: pretty; }
 
 .link { color: var(--accent); border-bottom: 1px solid rgba(111,211,230,0.5); }
 
