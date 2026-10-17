@@ -63,19 +63,18 @@ img { display: block; }
 .hero__content { position: relative; width: 100%; padding: 0 var(--pad) clamp(40px,7vh,72px); display: flex; flex-direction: column; gap: 18px; }
 /* negativer margin-left gleicht den linken Glyph-Abstand (Side Bearing) der Display-Schrift aus -> optisch buendig */
 .hero__title { margin: 0 0 0 -0.058em; font-family: var(--display); font-weight: 200; font-size: clamp(72px,13vw,220px); line-height: 0.85; letter-spacing: 0.005em; }
+.hero__head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 40px; }
+.hero__link { margin: 0; color: var(--ink-2); }
 .hero__bar { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 18px; }
 .hero__role { margin-left: -0.053em; font-family: var(--display); font-weight: 400; font-size: clamp(26px,2.6vw,36px); letter-spacing: 0.02em; }
 .hero__services { color: var(--ink-2); max-width: 760px; text-wrap: pretty; }
 
-/* Intro */
-.intro { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%,320px), 1fr)); gap: 40px; align-items: end; }
-.intro__big { margin: 0; font-family: var(--display); font-weight: 200; font-size: clamp(44px,5.5vw,80px); line-height: 0.95; }
-.intro__text { margin: 0 124px 0 0; justify-self: end; text-align: right; line-height: 1.55; color: var(--ink-3); max-width: 46ch; text-wrap: pretty; }
 .link { color: var(--accent); border-bottom: 1px solid rgba(111,211,230,0.5); }
 
 /* Sections */
 .section--alt { background: var(--bg-alt); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .section--bleed { padding: 0 0 clamp(80px,10vw,130px); }
+#work { padding-top: clamp(60px,8vw,110px); }
 .section__head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
 .heading { display: flex; align-items: baseline; gap: 16px; margin-bottom: 40px; }
 .section__head .heading { margin-bottom: 0; }
