@@ -70,7 +70,7 @@ img { display: block; }
 /* Intro */
 .intro { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%,320px), 1fr)); gap: 40px; align-items: end; }
 .intro__big { margin: 0; font-family: var(--display); font-weight: 200; font-size: clamp(44px,5.5vw,80px); line-height: 0.95; }
-.intro__text { margin: 0; line-height: 1.55; color: var(--ink-3); max-width: 46ch; text-wrap: pretty; }
+.intro__text { margin: 0; justify-self: end; text-align: right; line-height: 1.55; color: var(--ink-3); max-width: 46ch; text-wrap: pretty; }
 .link { color: var(--accent); border-bottom: 1px solid rgba(111,211,230,0.5); }
 
 /* Sections */
