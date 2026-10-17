@@ -17,7 +17,7 @@
 </head>
 <body>
 
-  <nav class="nav">
+  <nav class="nav nav--menu">
     <a href="#top" class="nav__logo"><span>P</span>PROSIC</a>
     <div class="nav__links">
       <a href="#work">Work</a>
@@ -26,7 +26,22 @@
       <a href="#contact">Contact</a>
       <a href="https://www.artstation.com/pprosic" target="_blank" rel="noopener" class="accent">ArtStation ↗</a>
     </div>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
   </nav>
+
+  <!-- Mobile-Menue: faehrt von rechts herein (css: .menu, js: Menu) -->
+  <div class="menu" id="menu">
+    <div class="menu__scrim"></div>
+    <aside class="menu__panel">
+      <div class="menu__links">
+        <a href="#work" style="--i:0"><span>01</span>Work</a>
+        <a href="#process" style="--i:1"><span>02</span>Processes</a>
+        <a href="#clients" style="--i:2"><span>03</span>Clients</a>
+        <a href="#contact" style="--i:3"><span>04</span>Contact</a>
+      </div>
+      <a href="https://www.artstation.com/pprosic" target="_blank" rel="noopener" class="menu__ext" style="--i:4">ArtStation ↗</a>
+    </aside>
+  </div>
 
   <header id="top" class="hero">
     <img class="hero__img" src="assets/img/DarkStreet_003_0282.jpg" alt="" fetchpriority="high">

@@ -9,6 +9,15 @@
   var filter = 'all';
   var lb = null; // { list, i }
 
+  // Mobile-Menue
+  function menu(open) {
+    document.documentElement.classList.toggle('menu-open', open);
+    $('burger').setAttribute('aria-expanded', open);
+  }
+  $('burger').addEventListener('click', function () { menu(!document.documentElement.classList.contains('menu-open')); });
+  $('menu').addEventListener('click', function (e) { if (e.target.closest('a') || !e.target.closest('.menu__panel')) menu(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') menu(false); });
+
   // Filters
   function renderFilters() {
     var keys = [['all', 'All']].concat(Object.keys(S.categories).map(function (k) { return [k, S.categories[k]]; }));
