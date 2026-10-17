@@ -79,7 +79,7 @@ img { display: block; }
 .section__head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
 .heading { display: flex; align-items: baseline; gap: 16px; margin-bottom: 40px; }
 .section__head .heading { margin-bottom: 0; }
-.heading__num { font-size: 14px; letter-spacing: 0.12em; color: var(--accent); }
+.heading__num { font-size: 28px; letter-spacing: 0.12em; color: var(--accent); }
 .heading h2 { margin: 0; font-family: var(--display); font-weight: 200; font-size: clamp(56px,7vw,110px); line-height: 0.85; }
 
 /* Filters */
