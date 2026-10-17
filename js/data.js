@@ -32,7 +32,6 @@ window.SITE = {
     ['TheLibrary_02.jpg', 'Library Project: Statues', 'interior'],
     ['CLEAN2.jpg', 'Film Project: First Encounter', 'scifi'],
     ['TheLibrary_01.jpg', 'Library Project: Lower Level - Corner Along Entrance View', 'interior'],
-    ['AtHome.jpg', 'Film Project: At Home / Window Scene', 'scifi'],
     ['Apartment_reduced.jpg', 'Film Project: Customized Apartment Design', 'interior'],
     ['Streets4.jpg', 'Film Project: Private Concept', 'scifi'],
     ['Balint_www.jpg', 'Family Crest Redesign According to the Golden Ratio', 'brand'],
