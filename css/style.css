@@ -15,6 +15,7 @@
   --ink-4: #7d838c;
   --accent: #6fd3e6;
   --orange: #ffad33;
+  --grey: #a0a0a0;
   --line: rgba(255,255,255,0.07);
   --pad: clamp(20px, 4vw, 56px);
   --display: 'Big Shoulders Display', sans-serif;
@@ -22,7 +23,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scrollbar-gutter: stable; } /* Platz fuer Scrollbalken bleibt -> nichts springt, wenn das Menue das Scrollen sperrt */
 body {
   margin: 0; background: var(--bg); color: var(--ink);
   font-family: var(--text); font-weight: 300; font-size: 19px;
@@ -63,7 +64,7 @@ img { display: block; }
     background: none; border: 0; padding: 0; cursor: pointer; -webkit-tap-highlight-color: transparent;
   }
   .burger span {
-    position: absolute; left: 10px; top: 19px; width: 24px; height: 6px; border-radius: 3px; background: var(--ink);
+    position: absolute; left: 10px; top: 20px; width: 24px; height: 4px; border-radius: 2px; background: var(--grey);
     transition: transform .45s cubic-bezier(.22,1,.36,1), opacity .25s;
   }
   .burger span:nth-child(1) { transform: translateY(-11px) rotate(-19deg); }
@@ -116,7 +117,7 @@ img { display: block; }
 .hero__link { margin: 0; color: var(--ink-2); }
 .hero__bar { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 18px; }
 .hero__role { margin-left: -0.053em; font-family: var(--display); font-weight: 400; font-size: clamp(22px,2.21vw,31px); letter-spacing: 0.02em; color: var(--orange); }
-.hero__services { color: #a0a0a0; max-width: 760px; text-wrap: pretty; }
+.hero__services { color: var(--grey); max-width: 760px; text-wrap: pretty; }
 
 .link { color: var(--accent); border-bottom: 1px solid rgba(111,211,230,0.5); }
 
