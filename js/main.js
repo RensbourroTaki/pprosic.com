@@ -35,12 +35,82 @@
   function renderWorks() {
     $('works').innerHTML = visible().map(function (w, i) {
       return '<figure class="work" data-i="' + i + '">' +
-        '<img src="' + w.src + '" alt="' + w.title + '" loading="lazy">' +
+        '<div class="work__pan"><img src="' + w.src + '" alt="' + w.title + '" loading="lazy" draggable="false"></div>' +
         '<figcaption><span class="work__title">' + w.title + '</span><span class="work__cat">' + S.categories[w.cat] + '</span></figcaption>' +
         '</figure>';
     }).join('');
+    [].forEach.call($('works').children, preparePan);
   }
+
+  // Mobile-Kamera (CSS in style.css): .work__pan ist seitlich wischbar. Bis das Bild ins Display scrollt,
+  // steht es am Rand (gerade Nummern links, ungerade rechts), dann faehrt es einmal zur Mitte.
+  // Ein Finger auf dem Bild bricht die Fahrt ab. Auf dem Desktop ist nichts scrollbar -> wirkungslos.
+  var still = !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pan = still ? null : new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { pan.unobserve(e.target); glide(e.target.firstChild); } });
+  }, { threshold: 0.35 });
+
+  function preparePan(f, i) {
+    var p = f.firstChild, img = p.firstChild;
+    function start() {
+      var max = p.scrollWidth - p.clientWidth;
+      p.scrollLeft = still ? max / 2 : (i % 2 ? max : 0);
+      if (pan) pan.observe(f);
+    }
+    if (img.complete && img.naturalWidth) start(); else img.addEventListener('load', start, { once: true });
+  }
+
+  function glide(p) {
+    var from = p.scrollLeft, to = (p.scrollWidth - p.clientWidth) / 2, t0 = null, dur = 2600, stop = false;
+    if (Math.abs(to - from) < 2) return;
+    function halt() { stop = true; }
+    ['pointerdown', 'touchstart', 'wheel'].forEach(function (ev) { p.addEventListener(ev, halt, { once: true, passive: true }); });
+    function ease(x) { return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
+    (function frame(t) {
+      if (stop) return;
+      if (t0 === null) t0 = t;
+      var k = Math.min((t - t0) / dur, 1);
+      p.scrollLeft = from + (to - from) * ease(k);
+      if (k < 1) requestAnimationFrame(frame);
+    })(performance.now());
+  }
+
+  // Mit der Maus ziehen wie mit dem Finger wischen (Touch scrollt nativ, das hier ist nur fuer Maus).
+  // Beim Loslassen gleitet das Bild mit dem Schwung weiter und bremst sanft ab.
+  var drag = null, dragged = false, coast = 0;
+  $('works').addEventListener('pointerdown', function (e) {
+    var p = e.target.closest('.work__pan');
+    dragged = false;
+    if (e.pointerType !== 'mouse' || e.button || !p || p.scrollWidth <= p.clientWidth) return;
+    cancelAnimationFrame(coast);
+    drag = { p: p, x: e.clientX, s: p.scrollLeft, lx: e.clientX, lt: performance.now(), v: 0 };
+    e.preventDefault();
+  });
+  window.addEventListener('pointermove', function (e) {
+    if (!drag) return;
+    var dx = e.clientX - drag.x, now = performance.now(), dt = Math.max(now - drag.lt, 1);
+    if (Math.abs(dx) > 4) { dragged = true; drag.p.classList.add('is-drag'); }
+    drag.p.scrollLeft = drag.s - dx;
+    drag.v = 0.8 * ((drag.lx - e.clientX) / dt) + 0.2 * drag.v; // px/ms, geglaettet
+    drag.lx = e.clientX; drag.lt = now;
+  });
+  window.addEventListener('pointerup', function () {
+    if (!drag) return;
+    var p = drag.p, v = performance.now() - drag.lt > 80 ? 0 : drag.v, last = performance.now();
+    p.classList.remove('is-drag'); drag = null;
+    function frame(t) {
+      var dt = Math.max(t - last, 1); last = t;
+      v *= Math.pow(0.994, dt); // Reibung: kleiner = staerker bremsen
+      if (Math.abs(v) < 0.02) return;
+      var before = p.scrollLeft;
+      p.scrollLeft += v * dt;
+      if (p.scrollLeft === before) return; // am Rand angekommen
+      coast = requestAnimationFrame(frame);
+    }
+    coast = requestAnimationFrame(frame);
+  });
   $('works').addEventListener('click', function (e) {
+    if (dragged) { dragged = false; return; } // Maus wurde gezogen -> kein Lightbox-Klick
     var f = e.target.closest('.work'); if (!f) return;
     openLb(visible(), +f.dataset.i);
   });
