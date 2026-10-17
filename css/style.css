@@ -47,6 +47,7 @@ img { display: block; }
   border-bottom: 1px solid var(--line);
 }
 .nav__logo { font-family: var(--display); font-weight: 400; font-size: 26px; letter-spacing: 0.06em; }
+.nav__logo span { color: #ff6a00; }
 .nav__links { display: flex; flex-wrap: wrap; gap: clamp(16px,2.6vw,36px); font-size: 14px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; }
 .nav__links a { color: var(--ink-3); }
 .nav__links a.accent { color: var(--accent); }
